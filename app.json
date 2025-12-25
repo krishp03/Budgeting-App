@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "FinSight",
+    "slug": "FinSight",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/finsight-logo.png",
+    "scheme": "finsight",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.finsight"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff",
+          "dark": {
+            "backgroundColor": "#000000"
+          }
+        }
+      ],
+      [
+        "@morrowdigital/watermelondb-expo-plugin",
+        {
+          "ios": {
+            "jsi": true
+          }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}
