@@ -29,7 +29,7 @@ A privacy-first, offline-first budgeting app built with React Native and TypeScr
 |-------|-----------|
 | Frontend | React Native + TypeScript |
 | State Management | Redux Toolkit / Recoil |
-| Local Data | Realm / WatermelonDB / SQLite |
+| Local Data | WatermelonDB |
 | Optional Cloud Sync | CloudKit via `react-native-cloudkit` |
 | Charts / Visualization | `react-native-chart-kit` / `victory-native` |
 | Notifications | `react-native-push-notification` |
@@ -48,7 +48,7 @@ A privacy-first, offline-first budgeting app built with React Native and TypeScr
 - **UI:** React Native + Tailwind / Styled Components  
 - **State Management:** Redux Toolkit or Recoil  
 - **Dependency Management:** Yarn / npm  
-- **Local Storage:** Realm or WatermelonDB (fast, offline-first)  
+- **Local Storage:** WatermelonDB
 
 ---
 
@@ -62,8 +62,6 @@ A privacy-first, offline-first budgeting app built with React Native and TypeScr
 | **RecurringExpense** | `linkedExpenseTemplate`, `frequency`, `nextOccurrence` |
 
 - Supports offline manual entry  
-- Can extend later for imported expenses  
-
 ---
 
 ## Expense Input Strategy
@@ -73,11 +71,6 @@ A privacy-first, offline-first budgeting app built with React Native and TypeScr
 - Assign category + activity tag  
 - Edit/delete anytime  
 - ✅ Fully offline, fast, privacy-safe  
-
-**Phase 2 — Optional Bank/Credit Import**  
-- Requires Plaid / Salt Edge & backend  
-- Adds cost & privacy complexity  
-- Plan for future support; not in initial scope  
 
 ---
 
@@ -98,14 +91,10 @@ A privacy-first, offline-first budgeting app built with React Native and TypeScr
 - Spending pace exceeds month → warn  
 - Fast, free, offline  
 
-**Phase 2 — Optional Local LLM:**  
+**Phase 2 — Local LLM:**  
 - Llama.cpp / Mistral  
 - Analyze local expense data  
 - Provide insights: overspending, category spikes, weekend spending  
-
-**Optional Paid Boost:**  
-- OpenAI API for deep summaries / insights  
-- Toggleable feature  
 
 ---
 
@@ -162,12 +151,12 @@ A privacy-first, offline-first budgeting app built with React Native and TypeScr
    - Monthly / historical comparisons  
 
 4. **AI Integration:**  
-   - Rule-based insights / optional local LLM  
+   - Rule-based insights / local LLM  
 
 5. **Polish & Expansion:**  
    - Recurring expenses  
    - Notifications  
-   - Optional iCloud sync & bank import  
+   - Future: iCloud sync & bank import  
 
 ---
 

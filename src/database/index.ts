@@ -1,16 +1,17 @@
 import { Database } from '@nozbe/watermelondb'
 import SQLiteAdapter from '@nozbe/watermelondb/adapters/sqlite'
 
-import Expense from './model/Expense'
+import Category from './model/Category'
+import Transaction from './model/Transaction'
 import { mySchema } from './schema'
 
 const adapter = new SQLiteAdapter({
     schema: mySchema,
-    // (You might want to comment out migrationEvents for now)
-    // migrations,
+    // migrations, // check later on
     jsi: true, /* Platform.OS === 'ios' */
     onSetUpError: error => {
-        // Database failed to load -- offer the user to reload the app or log out
+        // Database failed to load -- often because of schema mismatch in dev
+        // In production, handle this carefully. In dev, we can just log it.
         console.error(error)
     }
 })
@@ -18,6 +19,7 @@ const adapter = new SQLiteAdapter({
 export const database = new Database({
     adapter,
     modelClasses: [
-        Expense,
+        Transaction,
+        Category,
     ],
 })
