@@ -10,12 +10,19 @@ import { persistor, store } from '@/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
+import { seedCategories } from '@/database/seed';
+import { useEffect } from 'react';
+
 export const unstable_settings = {
   anchor: '(tabs)',
 };
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
+
+  useEffect(() => {
+    seedCategories();
+  }, []);
 
   return (
     <Provider store={store}>
@@ -24,7 +31,8 @@ export default function RootLayout() {
           <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
             <Stack>
               <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-              <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
+              <Stack.Screen name="finances" options={{ presentation: 'modal', title: 'Finances' }} />
+              <Stack.Screen name="transactions" options={{ title: 'All Transactions', presentation: 'card' }} />
               <Stack.Screen name="onboarding" options={{ presentation: 'fullScreenModal', headerShown: false, gestureEnabled: false }} />
             </Stack>
             <StatusBar style="auto" />

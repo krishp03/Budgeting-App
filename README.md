@@ -1,6 +1,6 @@
 # Budgeting App
 
-A privacy-first, offline-first budgeting app built with React Native and TypeScript, designed for iOS. Includes modular architecture, local storage, rule-based AI insights, and clean analytics.
+A privacy-first, offline-first budgeting app built with React Native and TypeScript, designed for iOS. Includes modular architecture, local storage, AI insights, and clean analytics.
 
 ---
 

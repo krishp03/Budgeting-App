@@ -1,14 +1,20 @@
-import { Model } from '@nozbe/watermelondb'
-import { date, field, readonly, text, writer } from '@nozbe/watermelondb/decorators'
+import { Model, Relation } from '@nozbe/watermelondb'
+import { date, field, readonly, relation, text, writer } from '@nozbe/watermelondb/decorators'
+import Category from './Category'
 
 export default class Transaction extends Model {
     static table = 'transactions'
+    static associations = {
+        categories: { type: 'belongs_to', key: 'category_id' },
+    } as const
 
     @text('title') title!: string
     @field('amount') amount!: number
     @text('type') type!: 'income' | 'expense'
     @text('category_id') categoryId!: string
     @date('date') date!: Date
+
+    @relation('categories', 'category_id') category!: Relation<Category>
     @text('notes') notes!: string
     @text('activity_tag') activityTag!: string
     @text('location') location!: string

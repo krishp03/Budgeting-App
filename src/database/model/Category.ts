@@ -3,6 +3,9 @@ import { date, field, readonly, text, writer } from '@nozbe/watermelondb/decorat
 
 export default class Category extends Model {
     static table = 'categories'
+    static associations = {
+        transactions: { type: 'has_many', foreignKey: 'category_id' },
+    } as const
 
     @text('name') name!: string
     @field('budget_limit') budgetLimit!: number
